@@ -134,4 +134,41 @@ document.getElementById('logoLink').addEventListener('click', (e) => {
         top: 0,
         behavior: 'smooth' // Smooth scroll effect
     });
+});
+
+// Add this to your JavaScript file
+function typeText(element, text, speed, callback) {
+    let index = 0;
+    
+    // Create cursor element
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    element.appendChild(cursor);
+
+    function type() {
+        if (index < text.length) {
+            element.insertBefore(
+                document.createTextNode(text.charAt(index)),
+                cursor
+            );
+            index++;
+            setTimeout(type, speed);
+        } else {
+            if (callback) callback();
+        }
+    }
+    
+    type();
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    const nameElement = document.getElementById('name');
+    const titleElement = document.getElementById('title');
+    
+    // Start typing the name
+    typeText(nameElement, 'Tee Jian Wei', 100, function() {
+        // After name is complete, start typing the title
+        typeText(titleElement, 'Fresh Graduate Software Engineer', 100);
+    });
 }); 
