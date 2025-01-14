@@ -569,6 +569,35 @@ footer {
     overflow: hidden;
 }
 
+.education-item ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-item ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    width: fit-content;
+}
+
+.education-item ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #ff6a00;
+}
+
+.education-item ul li:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+} 
+
 .education-image {
     margin: -2rem -2rem 2rem -2rem;
     height: 250px;
@@ -593,10 +622,12 @@ footer {
 }
 
 .education-item .school {
+    font-size: 1.2rem;
     color: #666;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0.5rem 0;
 } 
+
 
 /* Make it responsive for smaller screens */
 @media (max-width: 768px) {
@@ -628,7 +659,7 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.timeline-item .date {
+.date {
     font-size: 1rem;
     color: #666;
     font-style: italic;
@@ -813,4 +844,13 @@ button:disabled {
 
 button.sending {
     opacity: 0.7;
+} 
+
+.cgpa {
+    font-weight: bold;
+    color: #7c7777;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
 } 
