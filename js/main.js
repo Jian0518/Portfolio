@@ -171,4 +171,41 @@ document.addEventListener('DOMContentLoaded', function() {
         // After name is complete, start typing the title
         typeText(titleElement, 'Fresh Graduate Software Engineer', 100);
     });
+});
+
+// Function to handle form submission
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const submitButton = this.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    try {
+        const templateParams = {
+            to_email: 'jianwei020518@gmail.com',
+            from_name: username,
+            from_email: email,
+            message: message
+        };
+
+        await emailjs.send(
+            'service_2sbf16c', // Add your EmailJS service ID
+            'template_8tlyp4j', // Add your EmailJS template ID
+            templateParams
+        );
+
+        alert('Message sent successfully!');
+        document.getElementById('contactForm').reset();
+    } catch (error) {
+        console.error('Error sending email:', error);
+        alert('Failed to send message. Please try again later.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit';
+    }
 }); 
