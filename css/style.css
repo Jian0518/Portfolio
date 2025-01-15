@@ -854,3 +854,13 @@ button.sending {
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
 } 
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff6a00;
+} 
