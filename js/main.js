@@ -29,43 +29,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Function to download certification
-function downloadCertification() {
-    // Create a link element
-    const link = document.createElement('a');
-    
-    // Set the download link to your certification image
-    link.href = 'images/alibaba-certification.jpg';
-    
-    // Set the download filename
-    link.download = 'alibaba-cloud-certification.jpg';
-    
-    // Append link to body, click it, and remove it
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-// Function to download ACA certification
-function downloadACAcertification() {
-    const link = document.createElement('a');
-    link.href = 'images/alibaba-aca-certification.jpg';
-    link.download = 'alibaba-cloud-associate-certification.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-// Function to download MUET certification
-function downloadMUETCertification() {
-    const link = document.createElement('a');
-    link.href = 'images/muet-certification.jpg';
-    link.download = 'muet-certification.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
 // Function to fetch and display LeetCode stats
 async function fetchLeetCodeStats() {
     try {
@@ -210,12 +173,22 @@ document.getElementById('contactForm').addEventListener('submit', async function
     }
 });
 
-// Function to download academic transcript
-function downloadTranscript() {
-    const link = document.createElement('a');
-    link.href = 'resources/academicTranscript_2200692.pdf'; // Path to your academic transcript
-    link.download = 'academicTranscript_2200692.pdf'; // Set the download filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+// Function to open academic transcript in a new tab
+function openTranscript() {
+    window.open('resources/academicTranscript_2200692.pdf', '_blank'); // Open PDF in a new tab
+}
+
+// Function to open MUET certification image in a new tab
+function openMUETCertification() {
+    window.open('images/muet-certification.jpg', '_blank'); // Path to your MUET certification image
+}
+
+// Function to open ACA certification image in a new tab
+function openACACertification() {
+    window.open('images/alibaba-aca-certification.jpg', '_blank'); // Path to your ACA certification image
+}
+
+// Function to open ACP certification image in a new tab
+function openCertification() {
+    window.open('images/alibaba-certification.jpg', '_blank'); // Path to your ACP certification image
 } 
