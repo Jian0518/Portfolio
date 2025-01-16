@@ -208,4 +208,14 @@ document.getElementById('contactForm').addEventListener('submit', async function
         submitButton.disabled = false;
         submitButton.textContent = 'Submit';
     }
-}); 
+});
+
+// Function to download academic transcript
+function downloadTranscript() {
+    const link = document.createElement('a');
+    link.href = 'resources/academicTranscript_2200692.pdf'; // Path to your academic transcript
+    link.download = 'academicTranscript_2200692.pdf'; // Set the download filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+} 
