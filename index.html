@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,33 +10,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <css-doodle>
         :doodle {
-            @grid: 3x3 / 98vmax;
-            position: absolute;
-            top: 0; left: 0;
-            z-index: 0;
+        @grid: 3x3 / 98vmax;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 0;
         }
 
         @size: 100% 150%;
         position: absolute;
 
         background: @m(100, (
-            linear-gradient(transparent, @p(
-                #FFFDE1@repeat(2, @p([0-9a-f])),
-                #FB3569@repeat(2, @p([0-9a-f]))
-            ))
-            @r(0%, 100%) @r(0%, 100%) /
-            @r(1px) @r(23vmin)
-            no-repeat
+        linear-gradient(transparent, @p(
+        #FFFDE1@repeat(2, @p([0-9a-f])),
+        #FB3569@repeat(2, @p([0-9a-f]))
+        ))
+        @r(0%, 100%) @r(0%, 100%) /
+        @r(1px) @r(23vmin)
+        no-repeat
         ));
 
         will-change: transform;
         animation: f 50s linear calc(-50s / @size() * @i()) infinite;
         @keyframes f {
-            from { transform: translateY(-100%) }
-            to { transform: translateY(150%) }
+        from { transform: translateY(-100%) }
+        to { transform: translateY(150%) }
         }
     </css-doodle>
     <nav class="navbar">
@@ -59,8 +61,9 @@
             <h1 id="name"></h1>
             <h1 id="title"></h1>
             <div class="contact-info">
-                <p><i class="fas fa-phone"></i> 011-57761566</p>
-                <p><i class="fas fa-envelope"></i> jianwei020518@gmail.com</p>
+                <p><i class="fas fa-phone"></i><a href="tel:011-57761566">011-57761566</a></p>
+                <p><i class="fas fa-envelope"></i><a href="mailto:jianwei020518@gmail.com">jianwei020518@gmail.com</a></p>
+                <p><i class="fas fa-blog"></i><a href="https://personal-blog-orcin-two.vercel.app/" target="_blank">Jian Wei's Blog</a></p>
             </div>
         </div>
     </header>
@@ -77,8 +80,9 @@
                 <p class="date">23 October 2023 - 20 January 2024</p>
                 <ul>
                     <li>Fixed 30+ bugs in the accounting system</li>
-                    <li>Participated in the migration of the log error system from .NET Framework 4.8 to .NET 8</li>
-                    <li>Participated in the migration of the payroll system from Firebird database to SQL Server</li>
+                    <li>Assisted in migrating the log error service from .NET Framework 4.8 to .NET 8</li>
+                    <li>Restructured a payroll analysis tool by analyzing table differences and rewriting SQL queries
+                    </li>
                 </ul>
             </div>
             <!-- Add more experience items as needed -->
@@ -94,17 +98,28 @@
                 </div>
                 <h3>Bachelor of Computer Science</h3>
                 <p class="school">Universiti Tunku Abdul Rahman (Kampar, Perak)</p>
-                <p class="date">January 2022 - December 2024</p>
+                <p class="date">January 2022 - January 2025</p>
                 <p class="cgpa">CGPA: 3.70</p>
                 <ul>
-                    <li>UTAR President’s List: June 2022, May 2023</li>
-                    <li>UTAR Dean’s List: January 2022, October 2022</li>
+                    <li>UTAR President's List: June 2022, May 2023</li>
+                    <li>UTAR Dean's List: January 2022, October 2022</li>
                 </ul>
-                <button class="download-btn" onclick="openTranscript()">
+                <button class="download-btn" onclick="openUtarTranscript()">
                     <i class="fas fa-file-pdf"></i> View Academic Transcript
                 </button>
             </div>
-            <!-- Add more education items as needed -->
+            <div class="education-item">
+                <div class="education-image">
+                    <img src="images/mmu_melaka.webp" alt="MMU Malacca Campus">
+                </div>
+                <h3>Foundation in Information Technology</h3>
+                <p class="school">Multimedia University (Malacca)</p>
+                <p class="date">November 2020 - December 2021</p>
+                <p class="cgpa">CGPA: 3.85</p>
+                <button class="download-btn" onclick="openMmuTranscript()">
+                    <i class="fas fa-file-pdf"></i> View Academic Transcript
+                </button>
+            </div>
         </div>
     </section>
 
@@ -147,6 +162,17 @@
                     <i class="fas fa-image"></i> View ACP Certification
                 </button>
             </div>
+            <div class="certification-item">
+                <div class="certification-image">
+                    <img src="images/spm-logo.webp" alt="SPM Logo">
+                </div>
+                <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+                <p class="certification">6A+ 1A 1B+ 1C+</p>
+                <p class="date">Examination Year: 2019</p>
+                <button class="download-btn" onclick="openSPMCertification()">
+                    <i class="fas fa-file-pdf"></i> View SPM Certificate
+                </button>
+            </div>
             <!-- Add more certification items as needed -->
         </div>
     </section>
@@ -161,17 +187,15 @@
                 <h3>Online Auction Website In Support of UTAR Hospital</h3>
                 <b class="tech-stack">Java, Spring Boot, Vue.js, MySQL, Redis </b>
                 <ul>
-                    <li>Stripe Payment Gateway Integration</li>
-                    <li>Deployment of MINIO For Object Storage</li>
-                    <li>Implementation of Redis For Caching</li>
-                    <li>Data Visualization For Donation Transparency</li>
-                    <li>Synchronization Mechanism to Prevent Duplicate Bids</li>
+                    <li>Implemented a synchronization mechanism to prevent duplicate bids</li>
+                    <li>Integrated the Stripe payment gateway for seamless donations</li>
+                    <li>Utilized Redis caching to improve website performance</li>
+                    <li>Visualized data to enhance donation transparency and trust</li>
                 </ul>
                 <div class="project-links">
-                    <a href="#" target="_blank">Demo</a>
-                    <a href="#" target="_blank">GitHub</a>
+                    <a href="https://github.com/Jian0518/UHAuction-backend" target="_blank">GitHub</a>
                 </div>
-            
+
             </div>
             <!-- Add more project cards as needed -->
             <div class="project-card">
@@ -179,18 +203,17 @@
                     <img src="images/aws-cloud-services.png" alt="AWS Cloud Services">
                 </div>
                 <h3>Smart Irrigation System with AWS Cloud Services</h3>
-                <b class="tech-stack">AWS IoT Core, AWS Lambda, AWS SageMaker, Amazon QuickSight, Amazon S3, Amazon DynamoDB</b>
+                <b class="tech-stack">Python,IoT Core, Lambda, SageMaker, QuickSight, S3, DynamoDB</b>
                 <ul>
-                    <li>Implemented data authentication using AWS IoT Core for secure transmission to the cloud</li>
-                    <li>Designed a water volume calculation system based on environmental data using AWS Lambda</li>
-                    <li>Trained machine learning models with AWS SageMaker to predict future water demand</li>
-                    <li>Visualized water usage conditions using Amazon QuickSight for actionable insights</li>
+                    <li>Integrated AWS IoT Core to collect and process sensor data</li>
+                    <li>Developed AWS Lambda functions to automate irrigation triggers based on sensor data</li>
+                    <li>Utilized Amazon SageMaker for predictive analytics to optimize water usage</li>
+                    <li>Visualized data insights using Amazon QuickSight for monitoring and reporting</li>
                 </ul>
                 <div class="project-links">
-                    <a href="#" target="_blank">Demo</a>
-                    <a href="#" target="_blank">GitHub</a>
+                    <a href="resources/Smart_Irrigation_System_User_Manual.pdf" target="_blank">PDF</a>
                 </div>
-            
+
             </div>
         </div>
     </section>
@@ -288,13 +311,9 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Tee Jian Wei. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">Twitter</a>
-            </div>
             <p>
-                <a href="https://www.flaticon.com/free-icons/computer" title="computer icons">Computer icons created by Dighital Design - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/computer" title="computer icons">Computer icons created by
+                    Dighital Design - Flaticon</a>
             </p>
         </div>
     </footer>
@@ -305,11 +324,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        (function() {
+        (function () {
             emailjs.init("OBSkjI00-SCrPTDrb"); // Add your EmailJS public key here
         })();
     </script>
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
 </body>
-</html> 
+
+</html>

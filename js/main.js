@@ -174,8 +174,12 @@ document.getElementById('contactForm').addEventListener('submit', async function
 });
 
 // Function to open academic transcript in a new tab
-function openTranscript() {
+function openUtarTranscript() {
     window.open('resources/academicTranscript_2200692.pdf', '_blank'); // Open PDF in a new tab
+}
+
+function openMmuTranscript() {
+    window.open('resources/Foundation_Result_Tee Jian Wei.pdf', '_blank'); 
 }
 
 // Function to open MUET certification image in a new tab
@@ -191,4 +195,9 @@ function openACACertification() {
 // Function to open ACP certification image in a new tab
 function openCertification() {
     window.open('images/alibaba-certification.jpg', '_blank'); // Path to your ACP certification image
+}
+
+// Function to open SPM certificate in a new tab
+function openSPMCertification() {
+    window.open('resources/SPM_Tee Jian Wei.pdf', '_blank'); // Path to your SPM certificate
 } 
